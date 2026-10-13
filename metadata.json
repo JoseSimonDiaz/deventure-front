@@ -1,0 +1,6 @@
+{
+  "name": "Viking Anime Code Odyssey",
+  "description": "A gamified Norse mythology anime code learning adventure in C# and SQL with interactive rune duels, saga map, and Valhalla leaderboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
