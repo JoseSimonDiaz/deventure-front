@@ -1,8 +1,13 @@
 node_modules/
-build/
 dist/
 coverage/
-.DS_Store
-*.log
-.env*
+.env
+.env.*
 !.env.example
+*.log
+.DS_Store
+.superpowers/
+.claude/settings.local.json
+.claude/.playwright-mcp/
+.claude
+CLAUDE.md

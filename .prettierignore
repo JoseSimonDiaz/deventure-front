@@ -1,0 +1,7 @@
+dist
+reference
+pnpm-lock.yaml
+.superpowers
+.claude/skills
+.claude/agents
+.claude/commands
