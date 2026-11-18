@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-night: #0b1323;
+  --color-fjord-950: #060e1e;
+  --color-fjord-900: #131b2c;
+  --color-fjord-800: #182030;
+  --color-fjord-700: #222a3b;
+  --color-fjord-600: #2d3546;
+  --color-fjord-500: #3b494b;
+  --color-aurora: #00f0ff;
+  --color-aurora-deep: #006970;
+  --color-rune-gold: #ffd65b;
+  --color-rune-gold-deep: #e7b900;
+  --color-ember: #ffb59d;
+  --color-ember-deep: #832600;
+  --color-frost: #dbe2f9;
+  --color-valkyrie: #c4a1ff;
+  --color-mist: #b9cacb;
+
+  --font-display: 'Cinzel Decorative', serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+
+  --shadow-chunky: 0 6px 0 var(--color-fjord-950);
+  --shadow-chunky-pressed: 0 2px 0 var(--color-fjord-950);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-night);
+    color: var(--color-frost);
+    font-family: var(--font-body);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    min-height: 100dvh;
+    overscroll-behavior: none;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-rune-gold);
+    outline-offset: 3px;
+  }
+}

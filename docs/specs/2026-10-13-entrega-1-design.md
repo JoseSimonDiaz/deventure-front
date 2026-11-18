@@ -13,18 +13,18 @@ Construir la base profesional del frontend de Deventure y su primera entrega: un
 
 ### Decisiones tomadas
 
-| Tema                  | Decisión                                                                                                 |
-| --------------------- | -------------------------------------------------------------------------------------------------------- |
-| Ubicación             | Repo propio en `C:\proyectos\deventure-front`                                                            |
-| Lenguaje              | TypeScript estricto                                                                                      |
-| Gestor de paquetes    | pnpm                                                                                                     |
-| Alcance entrega 1     | Shell del juego + auth + intro + zonas con datos reales                                                  |
-| Mecánicas             | Las del análisis funcional (3 vidas, estrellas, racha, recompensas). Se descartan XP, gemas, ligas, ranking y clanes del prototipo |
-| Prototipo AI Studio   | Se mueve a `reference/` como referencia visual, fuera del build. No se usa su código                     |
-| Contratos             | Copia de los esquemas Zod del backend en `src/shared/contracts`                                          |
-| Ilustraciones         | SVG propios hechos en código, animables por partes                                                       |
-| Rutas                 | Orientadas a recursos (`/zones`, `/levels/:levelId`). Excepciones de acción: `/`, `/login`, `/register`, `/intro` |
-| Tests                 | No obligatorios (decisión del equipo). Verificación manual con checklist + Playwright                   |
+| Tema                | Decisión                                                                                                                           |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Ubicación           | Repo propio en `C:\proyectos\deventure-front`                                                                                      |
+| Lenguaje            | TypeScript estricto                                                                                                                |
+| Gestor de paquetes  | pnpm                                                                                                                               |
+| Alcance entrega 1   | Shell del juego + auth + intro + zonas con datos reales                                                                            |
+| Mecánicas           | Las del análisis funcional (3 vidas, estrellas, racha, recompensas). Se descartan XP, gemas, ligas, ranking y clanes del prototipo |
+| Prototipo AI Studio | Se mueve a `reference/` como referencia visual, fuera del build. No se usa su código                                               |
+| Contratos           | Copia de los esquemas Zod del backend en `src/shared/contracts`                                                                    |
+| Ilustraciones       | SVG propios hechos en código, animables por partes                                                                                 |
+| Rutas               | Orientadas a recursos (`/zones`, `/levels/:levelId`). Excepciones de acción: `/`, `/login`, `/register`, `/intro`                  |
+| Tests               | No obligatorios (decisión del equipo). Verificación manual con checklist + Playwright                                              |
 
 ### Fuera de alcance de la entrega 1
 
@@ -33,17 +33,17 @@ asistente IA, música de fondo y sincronización de ajustes con la cuenta.
 
 ## 2. Stack
 
-| Necesidad          | Elección                                              |
-| ------------------ | ----------------------------------------------------- |
-| Build              | Vite + React 19 + TypeScript                          |
-| Estilos            | Tailwind CSS v4 con tokens propios (`@theme`)         |
-| Rutas              | React Router                                          |
-| Estado de servidor | TanStack Query                                        |
-| Estado de cliente  | Zustand (`persist` para sesión y ajustes)             |
-| Formularios        | react-hook-form + Zod (`@hookform/resolvers`)         |
-| Animaciones        | Motion (`motion/react`)                               |
-| Íconos             | lucide-react                                          |
-| Fuentes            | `@fontsource/*` (alojadas en el proyecto, sin CDN)    |
+| Necesidad          | Elección                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| Build              | Vite + React 19 + TypeScript                                                                |
+| Estilos            | Tailwind CSS v4 con tokens propios (`@theme`)                                               |
+| Rutas              | React Router                                                                                |
+| Estado de servidor | TanStack Query                                                                              |
+| Estado de cliente  | Zustand (`persist` para sesión y ajustes)                                                   |
+| Formularios        | react-hook-form + Zod (`@hookform/resolvers`)                                               |
+| Animaciones        | Motion (`motion/react`)                                                                     |
+| Íconos             | lucide-react                                                                                |
+| Fuentes            | `@fontsource/*` (alojadas en el proyecto, sin CDN)                                          |
 | Calidad            | ESLint (typescript-eslint, react-hooks, jsx-a11y), Prettier, Husky, lint-staged, commitlint |
 
 Las versiones exactas se fijan al crear el proyecto, verificadas contra la documentación oficial
@@ -90,14 +90,14 @@ deventure-front/
 
 ### Rutas
 
-| Ruta                | Acceso                            | Pantalla                       |
-| ------------------- | --------------------------------- | ------------------------------ |
-| `/`                 | todos                             | Inicio                         |
-| `/login`            | sin sesión (con sesión → destino de "Jugar") | Login               |
-| `/register`         | sin sesión (con sesión → destino de "Jugar") | Registro            |
-| `/intro`            | con sesión                        | Introducción con Björn         |
-| `/zones`            | con sesión                        | Zonas y niveles                |
-| `*`                 | todos                             | 404                            |
+| Ruta        | Acceso                                       | Pantalla               |
+| ----------- | -------------------------------------------- | ---------------------- |
+| `/`         | todos                                        | Inicio                 |
+| `/login`    | sin sesión (con sesión → destino de "Jugar") | Login                  |
+| `/register` | sin sesión (con sesión → destino de "Jugar") | Registro               |
+| `/intro`    | con sesión                                   | Introducción con Björn |
+| `/zones`    | con sesión                                   | Zonas y niveles        |
+| `*`         | todos                                        | 404                    |
 
 **Destino de "Jugar":** sin sesión → `/login`; con sesión y `introSeen = false` → `/intro`;
 si no → `/zones`.
@@ -106,15 +106,15 @@ si no → `/zones`.
 
 ### Tokens (`src/styles/theme.css`)
 
-| Token          | Valor                 | Uso                                      |
-| -------------- | --------------------- | ---------------------------------------- |
-| `night`        | `#0b1323`             | Fondo                                    |
-| `fjord-900…500`| `#060e1e` → `#2d3546` | Paneles por capa                         |
-| `aurora`       | `#00f0ff`             | Acción principal, camino, acierto        |
-| `rune-gold`    | `#ffd65b`             | Estrellas, recompensas, anillo de foco   |
-| `ember`        | `#ffb59d`             | Vidas, error, derrota                    |
-| `frost`        | `#dbe2f9`             | Texto principal                          |
-| `mist`         | `#b9cacb`             | Texto secundario                         |
+| Token           | Valor                 | Uso                                    |
+| --------------- | --------------------- | -------------------------------------- |
+| `night`         | `#0b1323`             | Fondo                                  |
+| `fjord-900…500` | `#060e1e` → `#2d3546` | Paneles por capa                       |
+| `aurora`        | `#00f0ff`             | Acción principal, camino, acierto      |
+| `rune-gold`     | `#ffd65b`             | Estrellas, recompensas, anillo de foco |
+| `ember`         | `#ffb59d`             | Vidas, error, derrota                  |
+| `frost`         | `#dbe2f9`             | Texto principal                        |
+| `mist`          | `#b9cacb`             | Texto secundario                       |
 
 Prohibido usar hex sueltos en componentes (`bg-[#...]`). Todo color sale de un token.
 
@@ -137,14 +137,14 @@ barba), `Drakkar`, `Rune`, `Aurora`, `SeaWaves`, `Fog`, `ZoneIsland`.
 
 ### Animaciones
 
-| Dónde            | Animación                                                                      |
-| ---------------- | ------------------------------------------------------------------------------ |
-| Entre pantallas  | Transición "página de saga" con `AnimatePresence`                              |
-| Inicio           | Aurora animada, runas flotando, drakkar meciéndose, logo con golpe de martillo |
-| Botones          | Hundimiento al presionar, brillo al hover, sonido rúnico                       |
+| Dónde            | Animación                                                                                          |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| Entre pantallas  | Transición "página de saga" con `AnimatePresence`                                                  |
+| Inicio           | Aurora animada, runas flotando, drakkar meciéndose, logo con golpe de martillo                     |
+| Botones          | Hundimiento al presionar, brillo al hover, sonido rúnico                                           |
 | Login / registro | Escudo que tiembla ante error, estallido de runas al entrar, reglas de contraseña que se encienden |
-| Intro            | Björn respira y parpadea; texto máquina de escribir                            |
-| Zonas            | Camino que se dibuja (`pathLength`), nodos en cascada, niebla y olas en parallax |
+| Intro            | Björn respira y parpadea; texto máquina de escribir                                                |
+| Zonas            | Camino que se dibuja (`pathLength`), nodos en cascada, niebla y olas en parallax                   |
 
 **Reglas de animación:**
 
@@ -186,25 +186,25 @@ el volumen y silencio del `settingsStore` y solo se inicia tras un gesto del usu
 
 ### Errores en pantalla
 
-| Caso                                     | Presentación                                              |
-| ---------------------------------------- | --------------------------------------------------------- |
-| `VALIDATION_ERROR`                       | Mensaje bajo cada campo (`details: { campo: [mensajes] }`) |
-| `USERNAME_TAKEN`, `EMAIL_TAKEN`          | Mensaje bajo el campo                                     |
-| `INVALID_CREDENTIALS`                    | Escudo tiembla + mensaje del backend                      |
-| `ACCOUNT_LOCKED` (423), `TOO_MANY_REQUESTS` (429) | Mensaje del backend                              |
-| 5xx o sin red                            | Mensaje genérico + reintentar. Nunca el mensaje crudo     |
-| Error inesperado de render               | Error boundary vikingo con "Volver al inicio"             |
+| Caso                                              | Presentación                                               |
+| ------------------------------------------------- | ---------------------------------------------------------- |
+| `VALIDATION_ERROR`                                | Mensaje bajo cada campo (`details: { campo: [mensajes] }`) |
+| `USERNAME_TAKEN`, `EMAIL_TAKEN`                   | Mensaje bajo el campo                                      |
+| `INVALID_CREDENTIALS`                             | Escudo tiembla + mensaje del backend                       |
+| `ACCOUNT_LOCKED` (423), `TOO_MANY_REQUESTS` (429) | Mensaje del backend                                        |
+| 5xx o sin red                                     | Mensaje genérico + reintentar. Nunca el mensaje crudo      |
+| Error inesperado de render                        | Error boundary vikingo con "Volver al inicio"              |
 
 ### Endpoints que usa la entrega 1
 
-| Endpoint                          | Estado en el backend          |
-| --------------------------------- | ----------------------------- |
-| `POST /api/auth/register`         | Existe                        |
-| `POST /api/auth/login`            | Existe                        |
-| `GET /api/auth/me`                | Existe                        |
-| `PATCH /api/auth/me/intro-seen`   | **Falta: se agrega en auth-service como parte de esta entrega** |
-| `GET /api/content/zones`          | Existe (DEV-02)               |
-| `GET /api/content/levels/:levelId`| Existe (DEV-02), usado para la tarjeta del nivel |
+| Endpoint                           | Estado en el backend                                            |
+| ---------------------------------- | --------------------------------------------------------------- |
+| `POST /api/auth/register`          | Existe                                                          |
+| `POST /api/auth/login`             | Existe                                                          |
+| `GET /api/auth/me`                 | Existe                                                          |
+| `PATCH /api/auth/me/intro-seen`    | **Falta: se agrega en auth-service como parte de esta entrega** |
+| `GET /api/content/zones`           | Existe (DEV-02)                                                 |
+| `GET /api/content/levels/:levelId` | Existe (DEV-02), usado para la tarjeta del nivel                |
 
 El front corre en el puerto **5173**, que es el `CORS_ORIGIN` por defecto del gateway.
 
